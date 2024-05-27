@@ -18,8 +18,6 @@ client.config = require('./config.json')
 client.distube = new DisTube(client, {
   leaveOnStop: false,
   emitNewSongOnly: true,
-  emitAddSongWhenCreatingQueue: false,
-  emitAddListWhenCreatingQueue: false,
   plugins: [
     new SpotifyPlugin({
       emitEventsAfterFetching: true
