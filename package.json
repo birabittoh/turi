@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/distubejs/example.git"
+    "url": "git+ssh://git@github.com/birabittoh/turi.git"
   },
   "author": "BiRabittoh",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/distubejs/example/issues"
+    "url": "https://github.com/birabittoh/turi/issues"
   },
-  "homepage": "https://github.com/distubejs/example#readme",
+  "homepage": "https://github.com/birabittoh/turi#readme",
   "dependencies": {
     "@discordjs/voice": "^0.19.0",
     "@distube/deezer": "^2.0.1",
