@@ -1,6 +1,7 @@
 import { Command } from "..";
 import { EmbedBuilder, SlashCommandBuilder } from "discord.js";
 import type { ChatInputCommandInteraction } from "discord.js";
+import { BOT_NAME } from "../constants";
 
 export default class SkipCommand extends Command {
   readonly name = "skip";
@@ -14,14 +15,14 @@ export default class SkipCommand extends Command {
         embeds: [
           new EmbedBuilder()
             .setColor("Blurple")
-            .setTitle("DisTube")
+            .setTitle(BOT_NAME)
             .setDescription(`Skipped to \`${song.name || song.url}\``),
         ],
       });
     } catch (e) {
       console.error(e);
       interaction.reply({
-        embeds: [new EmbedBuilder().setColor("Blurple").setTitle("DisTube").setDescription(`Error: \`${e}\``)],
+        embeds: [new EmbedBuilder().setColor("Blurple").setTitle(BOT_NAME).setDescription(`Error: \`${e}\``)],
       });
     }
   }

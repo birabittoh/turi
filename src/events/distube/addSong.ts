@@ -2,6 +2,7 @@ import { Events } from "distube";
 import { EmbedBuilder } from "discord.js";
 import { DisTubeEvent, type Metadata } from "../..";
 import type { Queue, Song } from "distube";
+import { BOT_NAME } from "../../constants";
 
 export default class AddSongEvent extends DisTubeEvent<Events.ADD_SONG> {
   readonly name = Events.ADD_SONG;
@@ -10,7 +11,7 @@ export default class AddSongEvent extends DisTubeEvent<Events.ADD_SONG> {
       embeds: [
         new EmbedBuilder()
           .setColor("Blurple")
-          .setTitle("DisTube")
+          .setTitle(BOT_NAME)
           .setDescription(`Added \`${song.name}\` to the queue`),
       ],
     });

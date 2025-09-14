@@ -2,6 +2,7 @@ import { Events } from "distube";
 import { EmbedBuilder } from "discord.js";
 import { DisTubeEvent, type Metadata } from "../..";
 import type { Playlist, Queue } from "distube";
+import { BOT_NAME } from "../../constants";
 
 export default class AddListEvent extends DisTubeEvent<Events.ADD_LIST> {
   readonly name = Events.ADD_LIST;
@@ -10,7 +11,7 @@ export default class AddListEvent extends DisTubeEvent<Events.ADD_LIST> {
       embeds: [
         new EmbedBuilder()
           .setColor("Blurple")
-          .setTitle("DisTube")
+          .setTitle(BOT_NAME)
           .setDescription(`Added \`${playlist.name}\` (${playlist.songs.length} songs) to the queue`),
       ],
     });

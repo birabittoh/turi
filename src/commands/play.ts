@@ -2,6 +2,7 @@ import { Command } from "..";
 import { EmbedBuilder, SlashCommandBuilder } from "discord.js";
 import type { Metadata } from "..";
 import type { ChatInputCommandInteraction } from "discord.js";
+import { BOT_NAME } from "../constants";
 
 export default class PlayCommand extends Command {
   readonly name = "play";
@@ -35,7 +36,7 @@ export default class PlayCommand extends Command {
         console.error(e);
         interaction.editReply({
           embeds: [
-            new EmbedBuilder().setColor("Blurple").setTitle("DisTube").setDescription(`Error: \`${e.message}\``),
+            new EmbedBuilder().setColor("Blurple").setTitle(BOT_NAME).setDescription(`Error: \`${e.message}\``),
           ],
         });
       });

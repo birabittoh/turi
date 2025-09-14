@@ -2,6 +2,7 @@ import { Command } from "..";
 import { EmbedBuilder, SlashCommandBuilder } from "discord.js";
 import type { ChatInputCommandInteraction } from "discord.js";
 import { defaultFilters } from "distube";
+import { BOT_NAME } from "../constants";
 
 export default class FilterCommand extends Command {
   readonly name = "filter";
@@ -26,7 +27,7 @@ export default class FilterCommand extends Command {
       embeds: [
         new EmbedBuilder()
           .setColor("Blurple")
-          .setTitle("DisTube")
+          .setTitle(BOT_NAME)
           .setDescription(`Current filter: \`${filters.names.join(", ") || "Off"}\``),
       ],
     });

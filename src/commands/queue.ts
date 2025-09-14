@@ -2,6 +2,7 @@ import { Command } from "..";
 import { RepeatMode } from "distube";
 import { EmbedBuilder, SlashCommandBuilder } from "discord.js";
 import type { ChatInputCommandInteraction } from "discord.js";
+import { BOT_NAME } from "../constants";
 
 export default class QueueCommand extends Command {
   readonly name = "queue";
@@ -16,7 +17,7 @@ export default class QueueCommand extends Command {
       embeds: [
         new EmbedBuilder()
           .setColor("Blurple")
-          .setTitle("DisTube")
+          .setTitle(BOT_NAME)
           .setDescription(
             [
               `**Current:** \`${song.name || song.url}\` - \`${queue.formattedCurrentTime}\`/\`${
