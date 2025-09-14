@@ -20,6 +20,8 @@ import type {
 import SoundCloudPlugin from "@distube/soundcloud";
 import DeezerPlugin from "@distube/deezer";
 import { DirectLinkPlugin } from "@distube/direct-link";
+import dotenv from "dotenv";
+dotenv.config();
 
 const TOKEN = process.env.TOKEN;
 

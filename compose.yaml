@@ -1,0 +1,8 @@
+services:
+  turi:
+    image: ghcr.io/birabittoh/turi:main
+    build: .
+    container_name: turi
+    restart: unless-stopped
+    env_file:
+      - .env
