@@ -1,7 +1,7 @@
 import { Command } from "..";
-import { EmbedBuilder, SlashCommandBuilder } from "discord.js";
+import { SlashCommandBuilder } from "discord.js";
 import type { ChatInputCommandInteraction } from "discord.js";
-import { BOT_NAME } from "../constants";
+import { newEmbed } from "../constants";
 
 export default class SeekCommand extends Command {
   readonly name = "seek";
@@ -18,7 +18,7 @@ export default class SeekCommand extends Command {
     this.distube.seek(interaction, time);
     await interaction.reply({
       embeds: [
-        new EmbedBuilder().setColor("Blurple").setTitle(BOT_NAME).setDescription(`Seeked to \`${time}\` seconds`),
+        newEmbed().setDescription(`Seeked to \`${time}\` seconds`),
       ],
     });
   }

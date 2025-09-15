@@ -1,7 +1,7 @@
 import { Command } from "..";
-import { EmbedBuilder, SlashCommandBuilder } from "discord.js";
+import { SlashCommandBuilder } from "discord.js";
 import type { ChatInputCommandInteraction } from "discord.js";
-import { BOT_NAME } from "../constants";
+import { newEmbed } from "../constants";
 
 export default class VolumeCommand extends Command {
   readonly name = "volume";
@@ -18,7 +18,7 @@ export default class VolumeCommand extends Command {
     this.distube.setVolume(interaction, volume);
     await interaction.reply({
       embeds: [
-        new EmbedBuilder().setColor("Blurple").setTitle(BOT_NAME).setDescription(`Set volume to \`${volume}\``),
+        newEmbed().setDescription(`Set volume to \`${volume}\``),
       ],
     });
   }

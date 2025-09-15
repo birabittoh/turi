@@ -1,7 +1,7 @@
 import { Command } from "..";
-import { EmbedBuilder, SlashCommandBuilder } from "discord.js";
+import { SlashCommandBuilder } from "discord.js";
 import type { ChatInputCommandInteraction } from "discord.js";
-import { BOT_NAME } from "../constants";
+import { EmbedColor, newEmbed } from "../constants";
 
 export default class AutoplayCommand extends Command {
   readonly name = "autoplay";
@@ -12,16 +12,14 @@ export default class AutoplayCommand extends Command {
     try {
       await interaction.reply({
         embeds: [
-          new EmbedBuilder()
-            .setColor("Blurple")
-            .setTitle(BOT_NAME)
+          newEmbed()
             .setDescription(`Autoplay: \`${this.distube.toggleAutoplay(interaction) ? "On" : "Off"}\``),
         ],
       });
     } catch (e) {
       console.error(e);
       interaction.reply({
-        embeds: [new EmbedBuilder().setColor("Blurple").setTitle(BOT_NAME).setDescription(`Error: \`${e}\``)],
+        embeds: [newEmbed(EmbedColor.Error).setDescription(`Error: \`${e}\``)],
       });
     }
   }

@@ -3,7 +3,6 @@ import { readdirSync } from "fs";
 import { DisTube } from "distube";
 import { FilePlugin } from "@distube/file";
 import { YouTubePlugin } from "@distube/youtube";
-import { SpotifyPlugin } from "@distube/spotify";
 import { Client, Collection, GatewayIntentBits } from "discord.js";
 import type { Awaitable, DisTubeEvents } from "distube";
 import type {
@@ -41,10 +40,9 @@ export const followUp = async (
 class DisTubeClient extends Client<true> {
   distube = new DisTube(this, {
     plugins: [
+      new DeezerPlugin(),
       new YouTubePlugin(),
       new SoundCloudPlugin(),
-      new SpotifyPlugin(),
-      new DeezerPlugin(),
       new DirectLinkPlugin(),
       new FilePlugin(),
     ],

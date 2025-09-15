@@ -1,8 +1,8 @@
 import { Command } from "..";
-import { EmbedBuilder, SlashCommandBuilder } from "discord.js";
+import { SlashCommandBuilder } from "discord.js";
 import type { ChatInputCommandInteraction } from "discord.js";
 import { defaultFilters } from "distube";
-import { BOT_NAME } from "../constants";
+import { newEmbed } from "../constants";
 
 export default class FilterCommand extends Command {
   readonly name = "filter";
@@ -25,9 +25,7 @@ export default class FilterCommand extends Command {
     else filters.add(filter);
     await interaction.reply({
       embeds: [
-        new EmbedBuilder()
-          .setColor("Blurple")
-          .setTitle(BOT_NAME)
+        newEmbed()
           .setDescription(`Current filter: \`${filters.names.join(", ") || "Off"}\``),
       ],
     });

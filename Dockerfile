@@ -11,9 +11,8 @@ COPY package.json pnpm-lock.json* ./
 # Install dependencies (including devDependencies for ts-node)
 RUN pnpm i
 
-# Copy all source files except .env
-COPY src ./src
 COPY tsconfig.json ./
+COPY src ./src
 
 # Default command
 CMD ["pnpm", "start"]
