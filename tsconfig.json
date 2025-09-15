@@ -18,7 +18,7 @@
     "declaration": true,
     "inlineSources": true,
     "newLine": "lf",
-    "noEmitHelpers": true,
+    "noEmitHelpers": false,
     "outDir": "dist",
     "preserveConstEnums": true,
     "removeComments": false,

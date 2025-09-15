@@ -1,4 +1,5 @@
 import { ColorResolvable, EmbedBuilder } from "discord.js";
+import { getLyrics } from "./lyrics";
 
 const BOT_NAME = "Turi";
 const BOT_COLOR = "#FF73A8";
@@ -48,4 +49,20 @@ export function getSourceColor(source: string): EmbedColor {
 
 export function newEmbed(embedColor: EmbedColor = EmbedColor.Default): EmbedBuilder {
     return new EmbedBuilder().setColor(getEmbedColor(embedColor)).setTitle(BOT_NAME);
+}
+
+export async function getSongLyrics(song: string): Promise<string> {
+    if (song == "") {
+        return Promise.reject("No song information available.");
+    }
+
+    const query = song.replace(/ *\([^)]*\) */g, " ").replace(/ *\[[^\]]*]/, " ").replace(/ *- */g, " ").replace(/\s+/g, " ").trim();
+    console.log(`Searching lyrics: ${query}`);
+
+    const result = await getLyrics(query);
+    if (result.status !== 200 || !result.lyrics) {
+        return Promise.reject(result.message || "Could not find lyrics.");
+    }
+
+    return Promise.resolve(result.lyrics);
 }
